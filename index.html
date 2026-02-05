@@ -141,9 +141,7 @@
       gap:16px;
       margin: 18px 0 34px;
     }
-    .section{
-      padding:26px;
-    }
+    .section{padding:26px}
     .section h2{
       margin:0 0 10px;
       font-size: 22px;
@@ -177,29 +175,31 @@
     }
     .service h3{margin:0 0 6px; font-size:15px}
     .service p{margin:0; color:var(--muted); font-size:14px}
-    .team{
+
+    .team-groups{
       display:grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap:10px;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
       margin-top:14px;
     }
-    .person{
-      padding:12px;
+    .group{
+      padding:16px;
       border-radius:16px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.03);
-      text-align:center;
-      min-height:88px;
-      display:flex; flex-direction:column; justify-content:center;
+      min-height:110px;
     }
+    .group h3{margin:0 0 10px; font-size:14px; color:var(--muted); font-weight:650}
+    .names{display:flex; flex-direction:column; gap:6px}
+    .name-row{display:flex; align-items:center; gap:10px}
     .avatar{
-      width:34px; height:34px; border-radius:14px;
-      margin:0 auto 8px;
+      width:30px; height:30px; border-radius:12px;
       background: linear-gradient(135deg, rgba(45,212,191,.85), rgba(96,165,250,.85));
       opacity:.92;
+      flex: 0 0 auto;
     }
-    .person strong{font-size:13.5px}
-    .person span{font-size:12.5px; color:var(--muted)}
+    .name-row strong{font-size:13.5px}
+
     .project{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -215,62 +215,22 @@
     .project h3{margin:0 0 8px; font-size:15px}
     ul{margin:0; padding-left:18px; color:var(--muted)}
     li{margin:6px 0}
-    form{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:14px;
-    }
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color: var(--text);
-      outline:none;
-    }
-    textarea{grid-column: span 2; min-height:110px; resize:vertical}
-    .form-actions{
-      grid-column: span 2;
-      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
-    }
+
     .hint{color:var(--muted); font-size:13px}
+
     .footer{
       padding:20px 0 34px;
       color: rgba(231,238,252,.7);
       font-size:13px;
-    }
-    .toast{
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      background: rgba(17,27,46,.94);
-      border:1px solid var(--line);
-      border-radius: 16px;
-      padding: 12px 14px;
-      box-shadow: var(--shadow);
-      color: var(--text);
-      opacity:0;
-      pointer-events:none;
-      transition: opacity .22s ease, transform .22s ease;
-      max-width: min(520px, calc(100vw - 28px));
-    }
-    .toast.show{
-      opacity:1;
-      transform: translateX(-50%) translateY(-4px);
     }
 
     @media (max-width: 920px){
       .hero{grid-template-columns:1fr; padding-top:34px}
       h1{font-size: 38px}
       .services{grid-template-columns:1fr}
-      .team{grid-template-columns: repeat(2, 1fr)}
+      .team-groups{grid-template-columns: 1fr}
       .project{grid-template-columns:1fr}
       .span-8,.span-6,.span-4{grid-column: span 12}
-      form{grid-template-columns: 1fr}
-      textarea,.form-actions{grid-column: span 1}
       .links{gap:8px}
     }
   </style>
@@ -371,43 +331,38 @@
 
     <section id="team" class="card section" style="margin-top:16px;">
       <h2>Team</h2>
-      <p>CASE Coaching is built by a small team that blends business, operations, and tech.</p>
+      <p>Members grouped by pods.</p>
 
-      <div class="team" aria-label="Team members">
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <strong>Alex Stoica</strong>
-          <span>Member</span>
+      <div class="team-groups" aria-label="Team member groups">
+        <div class="group">
+          <h3>Group 1</h3>
+          <div class="names">
+            <div class="name-row"><div class="avatar" aria-hidden="true"></div><strong>Alex Stoica</strong></div>
+          </div>
         </div>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <strong>Lara Guajardo</strong>
-          <span>Member</span>
+
+        <div class="group">
+          <h3>Group 2</h3>
+          <div class="names">
+            <div class="name-row"><div class="avatar" aria-hidden="true"></div><strong>Lara Guajardo</strong></div>
+            <div class="name-row"><div class="avatar" aria-hidden="true"></div><strong>Sofia</strong></div>
+          </div>
         </div>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <strong>Sofia</strong>
-          <span>Member</span>
+
+        <div class="group">
+          <h3>Group 3</h3>
+          <div class="names">
+            <div class="name-row"><div class="avatar" aria-hidden="true"></div><strong>Nicholas</strong></div>
+            <div class="name-row"><div class="avatar" aria-hidden="true"></div><strong>Elle</strong></div>
+          </div>
         </div>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <strong>Nicholas</strong>
-          <span>Member</span>
-        </div>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <strong>Elle</strong>
-          <span>Member</span>
-        </div>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <strong>Casey</strong>
-          <span>Member</span>
-        </div>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <strong>Charles</strong>
-          <span>Member</span>
+
+        <div class="group">
+          <h3>Group 4</h3>
+          <div class="names">
+            <div class="name-row"><div class="avatar" aria-hidden="true"></div><strong>Casey</strong></div>
+            <div class="name-row"><div class="avatar" aria-hidden="true"></div><strong>Charles</strong></div>
+          </div>
         </div>
       </div>
     </section>
@@ -438,18 +393,17 @@
 
     <section id="contact" class="card section" style="margin-top:16px;">
       <h2>Contact</h2>
-      <p>Send a note and we will respond with next steps and a simple plan.</p>
+      <p>Click the button to email us directly at coachingcase@gmail.com.</p>
 
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
-        <input type="email" name="email" placeholder="Your email" autocomplete="email" required />
-        <textarea name="message" placeholder="What do you want to improve?" required></textarea>
-
-        <div class="form-actions">
-          <button class="btn primary" type="submit">Send message</button>
-          <span class="hint">This demo form saves nothing. It just shows a confirmation.</span>
-        </div>
-      </form>
+      <div style="margin-top:16px;">
+        <a class="btn primary"
+           href="mailto:coachingcase@gmail.com?subject=CASE%20Coaching%20Inquiry&body=Hi%20CASE%20Coaching%2C%0A%0AI%20would%20like%20to%20discuss%3A%0A%0AName%3A%0AOrganization%3A%0AMessage%3A%0A%0AThank%20you%2C">
+          Email CASE Coaching
+        </a>
+        <p class="hint" style="margin-top:10px;">
+          This opens the visitor’s email app and pre fills the message.
+        </p>
+      </div>
     </section>
 
     <footer class="footer">
@@ -459,29 +413,9 @@
     </footer>
   </main>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
   <script>
     const yearEl = document.getElementById("year");
     yearEl.textContent = new Date().getFullYear();
-
-    const form = document.getElementById("contactForm");
-    const toast = document.getElementById("toast");
-
-    function showToast(text){
-      toast.textContent = text;
-      toast.classList.add("show");
-      window.clearTimeout(showToast._t);
-      showToast._t = window.setTimeout(() => toast.classList.remove("show"), 2600);
-    }
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const name = (data.get("name") || "").toString().trim();
-      showToast(name ? `Thanks, ${name}. Message received.` : "Thanks. Message received.");
-      form.reset();
-    });
   </script>
 </body>
 </html>
